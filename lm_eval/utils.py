@@ -11,7 +11,10 @@ from typing import List, Union
 import gc
 import torch
 
-from omegaconf import OmegaConf
+try:
+    from omegaconf import OmegaConf
+except ImportError:
+    OmegaConf = None
 
 
 class ExitCodeError(Exception):
@@ -56,7 +59,15 @@ def simple_parse_args_string(args_string):
     if not args_string:
         return {}
     arg_list = args_string.split(",")
-    args_dict = OmegaConf.to_object(OmegaConf.from_dotlist(arg_list))
+    if OmegaConf is not None:
+        return OmegaConf.to_object(OmegaConf.from_dotlist(arg_list))
+
+    args_dict = {}
+    for arg in arg_list:
+        if "=" not in arg:
+            raise ValueError(f"Expected key=value pair, got: {arg}")
+        key, value = arg.split("=", 1)
+        args_dict[key] = value
     return args_dict
 
 

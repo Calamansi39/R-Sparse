@@ -61,8 +61,8 @@ def main():
     else:
         task_names = utils.pattern_match(args.tasks.split(","), tasks.ALL_TASKS)
     
-    if len(task_names) > 1:
-        raise NotImplementedError
+    if len(task_names) == 0:
+        raise ValueError("No tasks matched the provided --tasks pattern.")
 
     _, tokenizer, model = setup_model(args)
     model = model.eval().to(args.device)
@@ -73,7 +73,7 @@ def main():
         )
 
     
-    print(f"Selected Tasks: {task_names}")
+    print(f"Selected Tasks ({len(task_names)}): {task_names}")
 
     description_dict = {}
     if args.description_dict_path:
@@ -103,4 +103,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

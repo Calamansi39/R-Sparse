@@ -2,9 +2,13 @@ import math
 from collections.abc import Iterable
 
 import numpy as np
-import sacrebleu
 import sklearn.metrics
 import random
+
+try:
+    import sacrebleu
+except ImportError:
+    sacrebleu = None
 
 
 def mean(arr):
@@ -119,6 +123,8 @@ def bleu(items):
 
     Higher is better
     """
+    if sacrebleu is None:
+        raise ImportError("sacrebleu is required for translation metrics")
     refs = list(zip(*items))[0]
     preds = list(zip(*items))[1]
     refs, preds = _sacreformat(refs, preds)
@@ -133,6 +139,8 @@ def chrf(items):
 
     Higher is better  # TODO I think
     """
+    if sacrebleu is None:
+        raise ImportError("sacrebleu is required for translation metrics")
     refs = list(zip(*items))[0]
     preds = list(zip(*items))[1]
     refs, preds = _sacreformat(refs, preds)
@@ -148,6 +156,8 @@ def ter(items):
 
     Lower is better
     """
+    if sacrebleu is None:
+        raise ImportError("sacrebleu is required for translation metrics")
     refs = list(zip(*items))[0]
     preds = list(zip(*items))[1]
     refs, preds = _sacreformat(refs, preds)

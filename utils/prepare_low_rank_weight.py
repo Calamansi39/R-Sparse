@@ -8,6 +8,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--model_name', type=str, default='llama2')
     parser.add_argument("--output_dir", type=str, default=None)
+    parser.add_argument("--skip_existing", action="store_true")
     return parser.parse_args()
 
 def main():
@@ -16,6 +17,11 @@ def main():
     os.makedirs(args.output_dir, exist_ok=True)
     for name, m in model.named_modules():
         if isinstance(m, nn.Linear):
+            output_path = os.path.join(args.output_dir, name + '.pt')
+            if args.skip_existing and os.path.exists(output_path):
+                print(f"Skipping existing low-rank factors: {name}")
+                continue
+
             u, s, v = torch.svd(m.weight.to(torch.float64).cuda())
             weight_reconstructed = u @ torch.diag(s) @ v.T
 
@@ -27,8 +33,8 @@ def main():
             scale = scale.norm(dim=1)
 
             error = torch.norm(m.weight.cuda() - weight_reconstructed)
-            torch.save((u.cpu(), s.cpu(), v.cpu(), scale.cpu()), os.path.join(args.output_dir, name + '.pt'))
-            print('Error: ', error)
+            torch.save((u.cpu(), s.cpu(), v.cpu(), scale.cpu()), output_path)
+            print(f"Saved low-rank factors: {name} | reconstruction_residual={error.item():.6e}")
 
 if __name__ == '__main__':
     main()

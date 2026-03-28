@@ -11,19 +11,33 @@ from models.modeling_llama import LlamaForCausalLM_R_Sparse, R_Sparse_Linear
 
 __all__ = ['setup_config', 'setup_model']
 
+
+def resolve_model_path(model_name):
+    if os.path.isdir(model_name):
+        ref_file = os.path.join(model_name, "refs", "main")
+        snapshots_dir = os.path.join(model_name, "snapshots")
+        if os.path.isfile(ref_file) and os.path.isdir(snapshots_dir):
+            with open(ref_file) as f:
+                snapshot = f.read().strip()
+            snapshot_dir = os.path.join(snapshots_dir, snapshot)
+            if os.path.isdir(snapshot_dir):
+                return snapshot_dir
+    return model_name
+
 def setup_model(args):
-    config = AutoConfig.from_pretrained(args.model_name, cache_dir=args.cache_dir)
-    tokenizer = AutoTokenizer.from_pretrained(args.model_name, use_fast=False, cache_dir=args.cache_dir)
+    model_name = resolve_model_path(args.model_name)
+    config = AutoConfig.from_pretrained(model_name, cache_dir=args.cache_dir)
+    tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False, cache_dir=args.cache_dir)
     if args.method == 'full':
-        model = AutoModelForCausalLM.from_pretrained(args.model_name, 
+        model = AutoModelForCausalLM.from_pretrained(model_name, 
                 config=config, cache_dir=args.cache_dir, device_map='auto', trust_remote_code=True)
     elif args.method == 'relufiction':
         config.hidden_act = 'relu'
-        model = AutoModelForCausalLM.from_pretrained(args.model_name, 
+        model = AutoModelForCausalLM.from_pretrained(model_name, 
                 config=config, cache_dir=args.cache_dir, device_map='auto', trust_remote_code=True)
     elif args.method == 'r_sparse':
         config = setup_config(config, args)
-        model = LlamaForCausalLM_R_Sparse.from_pretrained(args.model_name, 
+        model = LlamaForCausalLM_R_Sparse.from_pretrained(model_name, 
                 config=config, cache_dir=args.cache_dir, device_map='auto', trust_remote_code=True)
         model = set_threshold_r_sparse(model, config, args, R_Sparse_Linear, tokenizer)
     else:
@@ -154,5 +168,4 @@ def setup_config(config, args):
     config.down_low_rank = config_data['down_low_rank']
 
     return config
-
 

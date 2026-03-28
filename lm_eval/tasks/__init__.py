@@ -1,8 +1,12 @@
 from pprint import pprint
 from typing import List, Union
 
-import sacrebleu
 import lm_eval.base
+
+try:
+    import sacrebleu
+except ImportError:
+    sacrebleu = None
 
 from . import babi
 from . import superglue
@@ -32,7 +36,8 @@ from . import pubmedqa
 from . import sciq
 from . import qasper
 from . import qa4mre
-from . import translation
+if sacrebleu is not None:
+    from . import translation
 from . import headqa
 from . import mathqa
 from . import hendrycks_ethics
@@ -80,17 +85,23 @@ gpt3_translation_benchmarks = {
 
 
 # 28 total
-selected_translation_benchmarks = {
-    **gpt3_translation_benchmarks,
-    "wmt20": sacrebleu.get_langpairs_for_testset("wmt20"),
-    "iwslt17": ["en-ar", "ar-en"],  # Arabic
-}
+if sacrebleu is not None:
+    selected_translation_benchmarks = {
+        **gpt3_translation_benchmarks,
+        "wmt20": sacrebleu.get_langpairs_for_testset("wmt20"),
+        "iwslt17": ["en-ar", "ar-en"],  # Arabic
+    }
+else:
+    selected_translation_benchmarks = {}
 
 # 319 total
-all_translation_benchmarks = {
-    ts: sacrebleu.get_langpairs_for_testset(ts)
-    for ts in sacrebleu.get_available_testsets()
-}
+if sacrebleu is not None:
+    all_translation_benchmarks = {
+        ts: sacrebleu.get_langpairs_for_testset(ts)
+        for ts in sacrebleu.get_available_testsets()
+    }
+else:
+    all_translation_benchmarks = {}
 
 
 ########################################
@@ -200,9 +211,9 @@ TASK_REGISTRY = {
     # hendrycksTest (57 tasks)
     **hendrycks_test.create_all_tasks(),
     # e.g. wmt14-fr-en
-    **translation.create_tasks_from_benchmarks(gpt3_translation_benchmarks),
+    **(translation.create_tasks_from_benchmarks(gpt3_translation_benchmarks) if sacrebleu is not None else {}),
     # chef's selection, mostly wmt20
-    **translation.create_tasks_from_benchmarks(selected_translation_benchmarks),
+    **(translation.create_tasks_from_benchmarks(selected_translation_benchmarks) if sacrebleu is not None else {}),
     # Word Scrambling and Manipulation Tasks
     "anagrams1": unscramble.Anagrams1,
     "anagrams2": unscramble.Anagrams2,

@@ -7,7 +7,10 @@ import os
 import json
 import hashlib
 import datasets
-from sqlitedict import SqliteDict
+try:
+    from sqlitedict import SqliteDict
+except ImportError:
+    SqliteDict = None
 from tqdm import tqdm
 import torch
 import torch.nn.functional as F
@@ -901,7 +904,10 @@ class CachingLM:
         self.cache_db = cache_db
         if os.path.dirname(cache_db):
             os.makedirs(os.path.dirname(cache_db), exist_ok=True)
-        self.dbdict = SqliteDict(cache_db, autocommit=True)
+        if SqliteDict is None:
+            self.dbdict = {}
+        else:
+            self.dbdict = SqliteDict(cache_db, autocommit=True)
 
         # add hook to lm
         lm.set_cache_hook(self.get_cache_hook())
