@@ -1,0 +1,306 @@
+[full]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:08,  2.82s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:05<00:05,  2.91s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:08<00:02,  2.80s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  1.96s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.29s/it]
+`pretrained` model kwarg is not of type `str`. Many other model arguments may be ignored. Please do not launch via accelerate or use `parallelize=True` if passing an existing model this way.
+Passed an already-initialized model through `pretrained`, assuming single-process call to evaluate() or custom distributed integration
+[Task: rte] metric acc is defined, but aggregation is not. using default aggregation=mean
+[Task: rte] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+Overwriting default num_fewshot of rte from None to 0
+  0%|          | 0/277 [00:00<?, ?it/s]100%|██████████| 277/277 [00:00<00:00, 3280.18it/s]
+Tokenizing inputs:   0%|          | 0/554 [00:00<?, ?it/s]Tokenizing inputs:  62%|██████▏   | 342/554 [00:00<00:00, 3416.49it/s]Tokenizing inputs: 100%|██████████| 554/554 [00:00<00:00, 3540.47it/s]
+Running loglikelihood requests:   0%|          | 0/554 [00:00<?, ?it/s]We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+Running loglikelihood requests:   0%|          | 1/554 [00:01<14:10,  1.54s/it]Running loglikelihood requests:   6%|▌         | 33/554 [00:02<00:30, 16.84it/s]Running loglikelihood requests:  12%|█▏        | 65/554 [00:03<00:19, 25.48it/s]Running loglikelihood requests:  18%|█▊        | 97/554 [00:03<00:13, 33.09it/s]Running loglikelihood requests:  23%|██▎       | 129/554 [00:04<00:10, 41.96it/s]Running loglikelihood requests:  29%|██▉       | 161/554 [00:04<00:08, 49.00it/s]Running loglikelihood requests:  35%|███▍      | 193/554 [00:05<00:06, 57.27it/s]Running loglikelihood requests:  41%|████      | 225/554 [00:05<00:05, 64.27it/s]Running loglikelihood requests:  46%|████▋     | 257/554 [00:05<00:04, 70.77it/s]Running loglikelihood requests:  52%|█████▏    | 289/554 [00:06<00:03, 76.15it/s]Running loglikelihood requests:  58%|█████▊    | 321/554 [00:06<00:02, 84.49it/s]Running loglikelihood requests:  64%|██████▎   | 353/554 [00:06<00:02, 91.37it/s]Running loglikelihood requests:  69%|██████▉   | 385/554 [00:07<00:01, 97.60it/s]Running loglikelihood requests:  75%|███████▌  | 417/554 [00:07<00:01, 103.68it/s]Running loglikelihood requests:  81%|████████  | 449/554 [00:07<00:00, 109.33it/s]Running loglikelihood requests:  87%|████████▋ | 481/554 [00:07<00:00, 113.69it/s]Running loglikelihood requests:  93%|█████████▎| 513/554 [00:08<00:00, 118.79it/s]Running loglikelihood requests: 100%|██████████| 554/554 [00:08<00:00, 68.25it/s] 
+{
+  "rte": {
+    "acc,none": 0.7111913357400722,
+    "acc_stderr,none": 0.027279964226856374,
+    "alias": "rte",
+    "name": "rte",
+    "sample_len": 277
+  }
+}
+Traceback (most recent call last):
+  File "/gemini/code/NMSparsity/R-Sparse/evaluation_official.py", line 92, in <module>
+    main()
+  File "/gemini/code/NMSparsity/R-Sparse/evaluation_official.py", line 87, in main
+    json.dump(results, f, indent=2)
+  File "/root/miniconda3/lib/python3.11/json/__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "/root/miniconda3/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/root/miniconda3/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/root/miniconda3/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/root/miniconda3/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type dtype is not JSON serializable
+[r_sparse]
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:08,  2.87s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:05<00:05,  2.90s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:08<00:02,  2.85s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  1.98s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.31s/it]
+  0%|          | 0/32 [00:00<?, ?it/s]  3%|▎         | 1/32 [00:00<00:07,  4.17it/s]  6%|▋         | 2/32 [00:00<00:06,  4.52it/s]  9%|▉         | 3/32 [00:00<00:06,  4.77it/s] 12%|█▎        | 4/32 [00:00<00:05,  4.87it/s] 16%|█▌        | 5/32 [00:01<00:05,  4.99it/s] 19%|█▉        | 6/32 [00:01<00:05,  5.06it/s] 22%|██▏       | 7/32 [00:01<00:04,  5.03it/s] 25%|██▌       | 8/32 [00:01<00:04,  5.08it/s] 28%|██▊       | 9/32 [00:01<00:04,  5.09it/s] 31%|███▏      | 10/32 [00:02<00:04,  5.09it/s] 34%|███▍      | 11/32 [00:02<00:04,  5.07it/s] 38%|███▊      | 12/32 [00:02<00:03,  5.05it/s] 41%|████      | 13/32 [00:02<00:03,  5.03it/s] 44%|████▍     | 14/32 [00:02<00:03,  5.00it/s] 47%|████▋     | 15/32 [00:03<00:03,  5.01it/s] 50%|█████     | 16/32 [00:03<00:03,  4.90it/s] 53%|█████▎    | 17/32 [00:03<00:03,  4.73it/s] 56%|█████▋    | 18/32 [00:03<00:02,  4.80it/s] 59%|█████▉    | 19/32 [00:03<00:02,  4.85it/s] 62%|██████▎   | 20/32 [00:04<00:02,  4.88it/s] 66%|██████▌   | 21/32 [00:04<00:02,  4.90it/s] 69%|██████▉   | 22/32 [00:04<00:02,  4.88it/s] 72%|███████▏  | 23/32 [00:04<00:01,  4.83it/s] 75%|███████▌  | 24/32 [00:04<00:01,  4.81it/s] 78%|███████▊  | 25/32 [00:05<00:01,  4.87it/s] 81%|████████▏ | 26/32 [00:05<00:01,  4.91it/s] 84%|████████▍ | 27/32 [00:05<00:01,  4.97it/s] 88%|████████▊ | 28/32 [00:05<00:00,  5.01it/s] 91%|█████████ | 29/32 [00:05<00:00,  5.00it/s] 94%|█████████▍| 30/32 [00:06<00:00,  4.97it/s] 97%|█████████▋| 31/32 [00:06<00:00,  4.97it/s]100%|██████████| 32/32 [00:06<00:00,  4.97it/s]100%|██████████| 32/32 [00:06<00:00,  4.93it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2458791 > 131072). Running this sequence through the model will result in indexing errors
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+Estimating threshold...
+Setting threshold:  0.35811254382133484 Estimated sparsity:  0.927584171295166 Target sparsity:  0.9275846609729296
+Setting threshold:  0.18100520968437195 Estimated sparsity:  0.8991866111755371 Target sparsity:  0.8991872232179632
+Setting threshold:  0.0045690773986279964 Estimated sparsity:  0.5780315399169922 Target sparsity:  0.5780327440635273
+Setting threshold:  0.0016426506917923689 Estimated sparsity:  0.6122798919677734 Target sparsity:  0.6122812718662566
+Setting threshold:  0.09337152540683746 Estimated sparsity:  0.5084514617919922 Target sparsity:  0.5084520183981467
+Setting threshold:  0.09848958253860474 Estimated sparsity:  0.5650539398193359 Target sparsity:  0.5650545245671517
+Setting threshold:  0.0014627942582592368 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.04126862436532974 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.04126862436532974 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.04126862436532974 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.00395229971036315 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.08265303820371628 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.08265303820371628 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.0023010147269815207 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.15459094941616058 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.15459094941616058 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.15459094941616058 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.002573818201199174 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.10468369722366333 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.10468369722366333 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.0036915887612849474 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.2831033766269684 Estimated sparsity:  0.5904521942138672 Target sparsity:  0.5904535406988058
+Setting threshold:  0.17273879051208496 Estimated sparsity:  0.5072741508483887 Target sparsity:  0.5072749881632475
+Setting threshold:  0.19121041893959045 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.005599696189165115 Estimated sparsity:  0.5953264236450195 Target sparsity:  0.5953273498891032
+Setting threshold:  0.28423598408699036 Estimated sparsity:  0.6326608657836914 Target sparsity:  0.6326617525897027
+Setting threshold:  0.18191257119178772 Estimated sparsity:  0.5122671127319336 Target sparsity:  0.5122678017253371
+Setting threshold:  0.006174496375024319 Estimated sparsity:  0.4999997615814209 Target sparsity:  0.5
+Setting threshold:  0.16992871463298798 Estimated sparsity:  0.4999990463256836 Target sparsity:  0.5
+Setting threshold:  0.16992871463298798 Estimated sparsity:  0.4999990463256836 Target sparsity:  0.5
+Setting threshold:  0.16992871463298798 Estimated sparsity:  0.4999990463256836 Target sparsity:  0.5
+Setting threshold:  0.009340721182525158 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.14274969696998596 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.14274969696998596 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.009410848841071129 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.1961372047662735 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.1961372047662735 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.1961372047662735 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.012284040451049805 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.15616875886917114 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.15616875886917114 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.011964059434831142 Estimated sparsity:  0.4999997615814209 Target sparsity:  0.5
+Setting threshold:  0.46110519766807556 Estimated sparsity:  0.7800607681274414 Target sparsity:  0.7800616669483401
+Setting threshold:  0.22865968942642212 Estimated sparsity:  0.612635612487793 Target sparsity:  0.6126365254876217
+Setting threshold:  0.12975485622882843 Estimated sparsity:  0.8751859664916992 Target sparsity:  0.8751866656863649
+Setting threshold:  0.019935665652155876 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.16231641173362732 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.24083632230758667 Estimated sparsity:  0.5293269157409668 Target sparsity:  0.5293276121526977
+Setting threshold:  0.01394425518810749 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.21046696603298187 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.21046696603298187 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.21046696603298187 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.028257735073566437 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.1638382524251938 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.1638382524251938 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.014432944357395172 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.22447383403778076 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.22447383403778076 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.22447383403778076 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.03459421172738075 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.16763532161712646 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.16763532161712646 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.015322752296924591 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.22973686456680298 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.22973686456680298 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.22973686456680298 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.039152294397354126 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.1695948988199234 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.1695948988199234 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.01615758240222931 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.23201683163642883 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.23201683163642883 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.23201683163642883 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.031054336577653885 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.17020189762115479 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.17020189762115479 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.016263969242572784 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.23829516768455505 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.23829516768455505 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.23829516768455505 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.04061529040336609 Estimated sparsity:  0.4999990463256836 Target sparsity:  0.5
+Setting threshold:  0.17302468419075012 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.17302468419075012 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.01650150865316391 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.222887322306633 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.222887322306633 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.222887322306633 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.042378611862659454 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.17007705569267273 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.17007705569267273 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.01669198088347912 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.249986469745636 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.249986469745636 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.249986469745636 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.04572298005223274 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.17464913427829742 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.17464913427829742 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.018408093601465225 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.43933194875717163 Estimated sparsity:  0.7092270851135254 Target sparsity:  0.7092276119920695
+Setting threshold:  0.2450455278158188 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2450455278158188 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.04992055520415306 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.18191197514533997 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.18191197514533997 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.01956191100180149 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.42061638832092285 Estimated sparsity:  0.6480598449707031 Target sparsity:  0.6480604139553267
+Setting threshold:  0.24544577300548553 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.09171922504901886 Estimated sparsity:  0.5598030090332031 Target sparsity:  0.5598037403256891
+Setting threshold:  0.02795514464378357 Estimated sparsity:  0.5207772254943848 Target sparsity:  0.5207777357739077
+Setting threshold:  0.19065889716148376 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.19065889716148376 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.021255310624837875 Estimated sparsity:  0.5594068765640259 Target sparsity:  0.5594070271587609
+Setting threshold:  0.23755091428756714 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.23755091428756714 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.23755091428756714 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.03353989124298096 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.20241737365722656 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.20241737365722656 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.02292810007929802 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.24696004390716553 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.24696004390716553 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.24696004390716553 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.029193799942731857 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.21187588572502136 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.21187588572502136 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.025530198588967323 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.25693199038505554 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.25693199038505554 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.25693199038505554 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.014551674015820026 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2198268473148346 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2198268473148346 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.024354398250579834 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.2610921859741211 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2610921859741211 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2610921859741211 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.011560341343283653 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2271726280450821 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2271726280450821 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.025097722187638283 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.2627250552177429 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2627250552177429 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2627250552177429 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.014139890670776367 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.23652592301368713 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.23652592301368713 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.025932222604751587 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.6929481029510498 Estimated sparsity:  0.862884521484375 Target sparsity:  0.862885133609417
+Setting threshold:  0.26230156421661377 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.1045626848936081 Estimated sparsity:  0.5531234741210938 Target sparsity:  0.5531244042238549
+Setting threshold:  0.014940089546144009 Estimated sparsity:  0.5031075477600098 Target sparsity:  0.5031080299336517
+Setting threshold:  0.2476852387189865 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2476852387189865 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.0289938785135746 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.2713119685649872 Estimated sparsity:  0.4999990463256836 Target sparsity:  0.5
+Setting threshold:  0.23439332842826843 Estimated sparsity:  0.5301089286804199 Target sparsity:  0.5301098070696604
+Setting threshold:  0.1453583687543869 Estimated sparsity:  `pretrained` model kwarg is not of type `str`. Many other model arguments may be ignored. Please do not launch via accelerate or use `parallelize=True` if passing an existing model this way.
+Passed an already-initialized model through `pretrained`, assuming single-process call to evaluate() or custom distributed integration
+[Task: rte] metric acc is defined, but aggregation is not. using default aggregation=mean
+[Task: rte] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+Overwriting default num_fewshot of rte from None to 0
+0.6664142608642578 Target sparsity:  0.6664147644547433
+Setting threshold:  0.014985545538365841 Estimated sparsity:  0.6096410751342773 Target sparsity:  0.6096415795450618
+Setting threshold:  0.2540966868400574 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2540966868400574 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.02960924431681633 Estimated sparsity:  0.4999997615814209 Target sparsity:  0.5
+Setting threshold:  0.2790689766407013 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  1.8337923288345337 Estimated sparsity:  0.9894704818725586 Target sparsity:  0.9894714201627794
+Setting threshold:  0.2790689766407013 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.0167637187987566 Estimated sparsity:  0.6435070037841797 Target sparsity:  0.6435076083234745
+Setting threshold:  0.579903781414032 Estimated sparsity:  0.5795836448669434 Target sparsity:  0.5795844582670843
+Setting threshold:  0.40292131900787354 Estimated sparsity:  0.5240826606750488 Target sparsity:  0.5240835923040355
+Setting threshold:  0.029393557459115982 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.28076300024986267 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.28076300024986267 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.28076300024986267 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.011458877474069595 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2707478404045105 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2707478404045105 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.029665237292647362 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.2856804132461548 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2856804132461548 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2856804132461548 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.012271609157323837 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.27770519256591797 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.27770519256591797 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.030261598527431488 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.2738071382045746 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2738071382045746 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2738071382045746 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.019635485485196114 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2872238755226135 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2872238755226135 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.03216501325368881 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.29033446311950684 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.29033446311950684 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.29033446311950684 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.020404472947120667 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2989252209663391 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2989252209663391 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.035105373710393906 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.2891349494457245 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2891349494457245 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2891349494457245 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.02683480829000473 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.31116029620170593 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.31116029620170593 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.03911647945642471 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.3068948984146118 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.3068948984146118 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.3068948984146118 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.021582532674074173 Estimated sparsity:  0.4999990463256836 Target sparsity:  0.5
+Setting threshold:  0.317988783121109 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.317988783121109 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.042794112116098404 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.2900669574737549 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.23181810975074768 Estimated sparsity:  0.5926318168640137 Target sparsity:  0.5926324579055559
+Setting threshold:  0.2900669574737549 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.049712199717760086 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.3215664327144623 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.3215664327144623 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.05106774717569351 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+Setting threshold:  0.2651672959327698 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2651672959327698 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.2651672959327698 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.05511365458369255 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.27486780285835266 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.27486780285835266 Estimated sparsity:  0.4999995231628418 Target sparsity:  0.5
+Setting threshold:  0.058751098811626434 Estimated sparsity:  0.49999988079071045 Target sparsity:  0.5
+  0%|          | 0/277 [00:00<?, ?it/s]100%|██████████| 277/277 [00:00<00:00, 3296.19it/s]
+Tokenizing inputs:   0%|          | 0/554 [00:00<?, ?it/s]Tokenizing inputs:  58%|█████▊    | 322/554 [00:00<00:00, 3215.28it/s]Tokenizing inputs: 100%|██████████| 554/554 [00:00<00:00, 3351.51it/s]
+Running loglikelihood requests:   0%|          | 0/554 [00:00<?, ?it/s]Running loglikelihood requests:   0%|          | 1/554 [00:01<12:47,  1.39s/it]Running loglikelihood requests:   6%|▌         | 33/554 [00:02<00:30, 17.34it/s]Running loglikelihood requests:  12%|█▏        | 65/554 [00:03<00:18, 26.63it/s]Running loglikelihood requests:  18%|█▊        | 97/554 [00:03<00:13, 33.78it/s]Running loglikelihood requests:  23%|██▎       | 129/554 [00:04<00:10, 40.70it/s]Running loglikelihood requests:  29%|██▉       | 161/554 [00:04<00:08, 48.48it/s]Running loglikelihood requests:  35%|███▍      | 193/554 [00:05<00:06, 55.38it/s]Running loglikelihood requests:  41%|████      | 225/554 [00:05<00:05, 61.19it/s]Running loglikelihood requests:  46%|████▋     | 257/554 [00:05<00:04, 68.63it/s]Running loglikelihood requests:  52%|█████▏    | 289/554 [00:06<00:03, 74.83it/s]Running loglikelihood requests:  58%|█████▊    | 321/554 [00:06<00:02, 80.20it/s]Running loglikelihood requests:  64%|██████▎   | 353/554 [00:06<00:02, 85.18it/s]Running loglikelihood requests:  69%|██████▉   | 385/554 [00:07<00:01, 89.79it/s]Running loglikelihood requests:  75%|███████▌  | 417/554 [00:07<00:01, 93.42it/s]Running loglikelihood requests:  81%|████████  | 449/554 [00:07<00:01, 97.36it/s]Running loglikelihood requests:  87%|████████▋ | 481/554 [00:08<00:00, 100.56it/s]Running loglikelihood requests:  93%|█████████▎| 513/554 [00:08<00:00, 109.69it/s]Running loglikelihood requests:  98%|█████████▊| 545/554 [00:08<00:00, 135.40it/s]Running loglikelihood requests: 100%|██████████| 554/554 [00:08<00:00, 66.08it/s] 
+{
+  "rte": {
+    "acc,none": 0.6895306859205776,
+    "acc_stderr,none": 0.027850410392630698,
+    "alias": "rte",
+    "name": "rte",
+    "sample_len": 277
+  }
+}
+Traceback (most recent call last):
+  File "/gemini/code/NMSparsity/R-Sparse/evaluation_official.py", line 92, in <module>
+    main()
+  File "/gemini/code/NMSparsity/R-Sparse/evaluation_official.py", line 87, in main
+    json.dump(results, f, indent=2)
+  File "/root/miniconda3/lib/python3.11/json/__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "/root/miniconda3/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/root/miniconda3/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/root/miniconda3/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/root/miniconda3/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type dtype is not JSON serializable

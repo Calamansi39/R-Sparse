@@ -1,0 +1,1170 @@
+{
+  "samples": [
+    {
+      "sample_id": 0,
+      "start": 466956,
+      "end": 467468,
+      "layers": {
+        "0": {
+          "sparsity": 0.6279647765371964,
+          "zero_count": 1270639,
+          "kept_count": 752785,
+          "total_count": 2023424,
+          "modules": {
+            "model.layers.0.self_attn.q_proj": {
+              "zero_count": 197427,
+              "kept_count": 15565,
+              "total_count": 212992,
+              "sparsity": 0.9269221379206731,
+              "threshold": 0.35811254382133484,
+              "target_sparsity": 0.9275846609729296,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.self_attn.k_proj": {
+              "zero_count": 191442,
+              "kept_count": 21550,
+              "total_count": 212992,
+              "sparsity": 0.8988224909855769,
+              "threshold": 0.18100520968437195,
+              "target_sparsity": 0.8991872232179632,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.self_attn.v_proj": {
+              "zero_count": 123761,
+              "kept_count": 89231,
+              "total_count": 212992,
+              "sparsity": 0.5810593825120193,
+              "threshold": 0.0045690773986279964,
+              "target_sparsity": 0.5780327440635273,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.self_attn.o_proj": {
+              "zero_count": 139972,
+              "kept_count": 73020,
+              "total_count": 212992,
+              "sparsity": 0.6571702223557693,
+              "threshold": 0.0016426506917923689,
+              "target_sparsity": 0.6122812718662566,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.mlp.gate_proj": {
+              "zero_count": 111047,
+              "kept_count": 101945,
+              "total_count": 212992,
+              "sparsity": 0.5213669996995193,
+              "threshold": 0.09337152540683746,
+              "target_sparsity": 0.5084520183981467,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.mlp.up_proj": {
+              "zero_count": 123005,
+              "kept_count": 89987,
+              "total_count": 212992,
+              "sparsity": 0.5775099534254807,
+              "threshold": 0.09848958253860474,
+              "target_sparsity": 0.5650545245671517,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.mlp.down_proj": {
+              "zero_count": 383985,
+              "kept_count": 361487,
+              "total_count": 745472,
+              "sparsity": 0.5150897686298077,
+              "threshold": 0.0014627942582592368,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            }
+          }
+        },
+        "15": {
+          "sparsity": 0.524783238708249,
+          "zero_count": 1061859,
+          "kept_count": 961565,
+          "total_count": 2023424,
+          "modules": {
+            "model.layers.15.self_attn.q_proj": {
+              "zero_count": 130298,
+              "kept_count": 82694,
+              "total_count": 212992,
+              "sparsity": 0.6117506760817307,
+              "threshold": 0.42061638832092285,
+              "target_sparsity": 0.6480604139553267,
+              "mode": "r_sparse"
+            },
+            "model.layers.15.self_attn.k_proj": {
+              "zero_count": 97692,
+              "kept_count": 115300,
+              "total_count": 212992,
+              "sparsity": 0.4586651141826923,
+              "threshold": 0.24544577300548553,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.15.self_attn.v_proj": {
+              "zero_count": 110526,
+              "kept_count": 102466,
+              "total_count": 212992,
+              "sparsity": 0.5189208984375,
+              "threshold": 0.09171922504901886,
+              "target_sparsity": 0.5598037403256891,
+              "mode": "r_sparse"
+            },
+            "model.layers.15.self_attn.o_proj": {
+              "zero_count": 105029,
+              "kept_count": 107963,
+              "total_count": 212992,
+              "sparsity": 0.49311241736778844,
+              "threshold": 0.02795514464378357,
+              "target_sparsity": 0.5207777357739077,
+              "mode": "r_sparse"
+            },
+            "model.layers.15.mlp.gate_proj": {
+              "zero_count": 99666,
+              "kept_count": 113326,
+              "total_count": 212992,
+              "sparsity": 0.46793306790865385,
+              "threshold": 0.19065889716148376,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.15.mlp.up_proj": {
+              "zero_count": 99666,
+              "kept_count": 113326,
+              "total_count": 212992,
+              "sparsity": 0.46793306790865385,
+              "threshold": 0.19065889716148376,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.15.mlp.down_proj": {
+              "zero_count": 418982,
+              "kept_count": 326490,
+              "total_count": 745472,
+              "sparsity": 0.5620358645260989,
+              "threshold": 0.021255310624837875,
+              "target_sparsity": 0.5594070271587609,
+              "mode": "r_sparse"
+            }
+          }
+        },
+        "31": {
+          "sparsity": 0.4999258682312753,
+          "zero_count": 1011562,
+          "kept_count": 1011862,
+          "total_count": 2023424,
+          "modules": {
+            "model.layers.31.self_attn.q_proj": {
+              "zero_count": 105889,
+              "kept_count": 107103,
+              "total_count": 212992,
+              "sparsity": 0.4971501277043269,
+              "threshold": 0.2651672959327698,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.self_attn.k_proj": {
+              "zero_count": 105889,
+              "kept_count": 107103,
+              "total_count": 212992,
+              "sparsity": 0.4971501277043269,
+              "threshold": 0.2651672959327698,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.self_attn.v_proj": {
+              "zero_count": 105889,
+              "kept_count": 107103,
+              "total_count": 212992,
+              "sparsity": 0.4971501277043269,
+              "threshold": 0.2651672959327698,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.self_attn.o_proj": {
+              "zero_count": 101212,
+              "kept_count": 111780,
+              "total_count": 212992,
+              "sparsity": 0.47519155649038464,
+              "threshold": 0.05511365458369255,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.mlp.gate_proj": {
+              "zero_count": 105619,
+              "kept_count": 107373,
+              "total_count": 212992,
+              "sparsity": 0.49588247445913464,
+              "threshold": 0.27486780285835266,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.mlp.up_proj": {
+              "zero_count": 105619,
+              "kept_count": 107373,
+              "total_count": 212992,
+              "sparsity": 0.49588247445913464,
+              "threshold": 0.27486780285835266,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.mlp.down_proj": {
+              "zero_count": 381445,
+              "kept_count": 364027,
+              "total_count": 745472,
+              "sparsity": 0.5116825313358516,
+              "threshold": 0.058751098811626434,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            }
+          }
+        }
+      },
+      "overall": {
+        "sparsity": 0.5508912944922402,
+        "zero_count": 3344060,
+        "total_count": 6070272
+      }
+    },
+    {
+      "sample_id": 1,
+      "start": 104902,
+      "end": 105414,
+      "layers": {
+        "0": {
+          "sparsity": 0.6681792842231782,
+          "zero_count": 1352010,
+          "kept_count": 671414,
+          "total_count": 2023424,
+          "modules": {
+            "model.layers.0.self_attn.q_proj": {
+              "zero_count": 200040,
+              "kept_count": 12952,
+              "total_count": 212992,
+              "sparsity": 0.9391902043269231,
+              "threshold": 0.35811254382133484,
+              "target_sparsity": 0.9275846609729296,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.self_attn.k_proj": {
+              "zero_count": 194398,
+              "kept_count": 18594,
+              "total_count": 212992,
+              "sparsity": 0.9127009465144231,
+              "threshold": 0.18100520968437195,
+              "target_sparsity": 0.8991872232179632,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.self_attn.v_proj": {
+              "zero_count": 130390,
+              "kept_count": 82602,
+              "total_count": 212992,
+              "sparsity": 0.6121826171875,
+              "threshold": 0.0045690773986279964,
+              "target_sparsity": 0.5780327440635273,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.self_attn.o_proj": {
+              "zero_count": 146594,
+              "kept_count": 66398,
+              "total_count": 212992,
+              "sparsity": 0.6882605919471154,
+              "threshold": 0.0016426506917923689,
+              "target_sparsity": 0.6122812718662566,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.mlp.gate_proj": {
+              "zero_count": 118447,
+              "kept_count": 94545,
+              "total_count": 212992,
+              "sparsity": 0.5561100886418269,
+              "threshold": 0.09337152540683746,
+              "target_sparsity": 0.5084520183981467,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.mlp.up_proj": {
+              "zero_count": 130499,
+              "kept_count": 82493,
+              "total_count": 212992,
+              "sparsity": 0.6126943734975961,
+              "threshold": 0.09848958253860474,
+              "target_sparsity": 0.5650545245671517,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.mlp.down_proj": {
+              "zero_count": 431642,
+              "kept_count": 313830,
+              "total_count": 745472,
+              "sparsity": 0.5790183937156593,
+              "threshold": 0.0014627942582592368,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            }
+          }
+        },
+        "15": {
+          "sparsity": 0.5396713689271255,
+          "zero_count": 1091984,
+          "kept_count": 931440,
+          "total_count": 2023424,
+          "modules": {
+            "model.layers.15.self_attn.q_proj": {
+              "zero_count": 131939,
+              "kept_count": 81053,
+              "total_count": 212992,
+              "sparsity": 0.6194551908052884,
+              "threshold": 0.42061638832092285,
+              "target_sparsity": 0.6480604139553267,
+              "mode": "r_sparse"
+            },
+            "model.layers.15.self_attn.k_proj": {
+              "zero_count": 99136,
+              "kept_count": 113856,
+              "total_count": 212992,
+              "sparsity": 0.46544471153846156,
+              "threshold": 0.24544577300548553,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.15.self_attn.v_proj": {
+              "zero_count": 112110,
+              "kept_count": 100882,
+              "total_count": 212992,
+              "sparsity": 0.5263577974759616,
+              "threshold": 0.09171922504901886,
+              "target_sparsity": 0.5598037403256891,
+              "mode": "r_sparse"
+            },
+            "model.layers.15.self_attn.o_proj": {
+              "zero_count": 120236,
+              "kept_count": 92756,
+              "total_count": 212992,
+              "sparsity": 0.5645094651442307,
+              "threshold": 0.02795514464378357,
+              "target_sparsity": 0.5207777357739077,
+              "mode": "r_sparse"
+            },
+            "model.layers.15.mlp.gate_proj": {
+              "zero_count": 99547,
+              "kept_count": 113445,
+              "total_count": 212992,
+              "sparsity": 0.46737436147836536,
+              "threshold": 0.19065889716148376,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.15.mlp.up_proj": {
+              "zero_count": 99547,
+              "kept_count": 113445,
+              "total_count": 212992,
+              "sparsity": 0.46737436147836536,
+              "threshold": 0.19065889716148376,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.15.mlp.down_proj": {
+              "zero_count": 429469,
+              "kept_count": 316003,
+              "total_count": 745472,
+              "sparsity": 0.5761034619677198,
+              "threshold": 0.021255310624837875,
+              "target_sparsity": 0.5594070271587609,
+              "mode": "r_sparse"
+            }
+          }
+        },
+        "31": {
+          "sparsity": 0.5121842975075911,
+          "zero_count": 1036366,
+          "kept_count": 987058,
+          "total_count": 2023424,
+          "modules": {
+            "model.layers.31.self_attn.q_proj": {
+              "zero_count": 107628,
+              "kept_count": 105364,
+              "total_count": 212992,
+              "sparsity": 0.5053147536057693,
+              "threshold": 0.2651672959327698,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.self_attn.k_proj": {
+              "zero_count": 107628,
+              "kept_count": 105364,
+              "total_count": 212992,
+              "sparsity": 0.5053147536057693,
+              "threshold": 0.2651672959327698,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.self_attn.v_proj": {
+              "zero_count": 107628,
+              "kept_count": 105364,
+              "total_count": 212992,
+              "sparsity": 0.5053147536057693,
+              "threshold": 0.2651672959327698,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.self_attn.o_proj": {
+              "zero_count": 97578,
+              "kept_count": 115414,
+              "total_count": 212992,
+              "sparsity": 0.4581298828125,
+              "threshold": 0.05511365458369255,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.mlp.gate_proj": {
+              "zero_count": 108406,
+              "kept_count": 104586,
+              "total_count": 212992,
+              "sparsity": 0.5089674729567307,
+              "threshold": 0.27486780285835266,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.mlp.up_proj": {
+              "zero_count": 108406,
+              "kept_count": 104586,
+              "total_count": 212992,
+              "sparsity": 0.5089674729567307,
+              "threshold": 0.27486780285835266,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.mlp.down_proj": {
+              "zero_count": 399092,
+              "kept_count": 346380,
+              "total_count": 745472,
+              "sparsity": 0.5353547819368132,
+              "threshold": 0.058751098811626434,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            }
+          }
+        }
+      },
+      "overall": {
+        "sparsity": 0.5733449835526315,
+        "zero_count": 3480360,
+        "total_count": 6070272
+      }
+    },
+    {
+      "sample_id": 2,
+      "start": 1153556,
+      "end": 1154068,
+      "layers": {
+        "0": {
+          "sparsity": 0.6542281795609818,
+          "zero_count": 1323781,
+          "kept_count": 699643,
+          "total_count": 2023424,
+          "modules": {
+            "model.layers.0.self_attn.q_proj": {
+              "zero_count": 198653,
+              "kept_count": 14339,
+              "total_count": 212992,
+              "sparsity": 0.93267822265625,
+              "threshold": 0.35811254382133484,
+              "target_sparsity": 0.9275846609729296,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.self_attn.k_proj": {
+              "zero_count": 192845,
+              "kept_count": 20147,
+              "total_count": 212992,
+              "sparsity": 0.9054095928485577,
+              "threshold": 0.18100520968437195,
+              "target_sparsity": 0.8991872232179632,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.self_attn.v_proj": {
+              "zero_count": 128387,
+              "kept_count": 84605,
+              "total_count": 212992,
+              "sparsity": 0.6027785081129807,
+              "threshold": 0.0045690773986279964,
+              "target_sparsity": 0.5780327440635273,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.self_attn.o_proj": {
+              "zero_count": 148863,
+              "kept_count": 64129,
+              "total_count": 212992,
+              "sparsity": 0.69891357421875,
+              "threshold": 0.0016426506917923689,
+              "target_sparsity": 0.6122812718662566,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.mlp.gate_proj": {
+              "zero_count": 115449,
+              "kept_count": 97543,
+              "total_count": 212992,
+              "sparsity": 0.5420344426081731,
+              "threshold": 0.09337152540683746,
+              "target_sparsity": 0.5084520183981467,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.mlp.up_proj": {
+              "zero_count": 127477,
+              "kept_count": 85515,
+              "total_count": 212992,
+              "sparsity": 0.5985060471754807,
+              "threshold": 0.09848958253860474,
+              "target_sparsity": 0.5650545245671517,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.mlp.down_proj": {
+              "zero_count": 412107,
+              "kept_count": 333365,
+              "total_count": 745472,
+              "sparsity": 0.5528135194883241,
+              "threshold": 0.0014627942582592368,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            }
+          }
+        },
+        "15": {
+          "sparsity": 0.5177412148911943,
+          "zero_count": 1047610,
+          "kept_count": 975814,
+          "total_count": 2023424,
+          "modules": {
+            "model.layers.15.self_attn.q_proj": {
+              "zero_count": 126700,
+              "kept_count": 86292,
+              "total_count": 212992,
+              "sparsity": 0.5948580228365384,
+              "threshold": 0.42061638832092285,
+              "target_sparsity": 0.6480604139553267,
+              "mode": "r_sparse"
+            },
+            "model.layers.15.self_attn.k_proj": {
+              "zero_count": 95144,
+              "kept_count": 117848,
+              "total_count": 212992,
+              "sparsity": 0.4467022235576923,
+              "threshold": 0.24544577300548553,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.15.self_attn.v_proj": {
+              "zero_count": 107693,
+              "kept_count": 105299,
+              "total_count": 212992,
+              "sparsity": 0.5056199293870193,
+              "threshold": 0.09171922504901886,
+              "target_sparsity": 0.5598037403256891,
+              "mode": "r_sparse"
+            },
+            "model.layers.15.self_attn.o_proj": {
+              "zero_count": 116175,
+              "kept_count": 96817,
+              "total_count": 212992,
+              "sparsity": 0.5454430213341346,
+              "threshold": 0.02795514464378357,
+              "target_sparsity": 0.5207777357739077,
+              "mode": "r_sparse"
+            },
+            "model.layers.15.mlp.gate_proj": {
+              "zero_count": 95194,
+              "kept_count": 117798,
+              "total_count": 212992,
+              "sparsity": 0.44693697415865385,
+              "threshold": 0.19065889716148376,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.15.mlp.up_proj": {
+              "zero_count": 95194,
+              "kept_count": 117798,
+              "total_count": 212992,
+              "sparsity": 0.44693697415865385,
+              "threshold": 0.19065889716148376,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.15.mlp.down_proj": {
+              "zero_count": 411510,
+              "kept_count": 333962,
+              "total_count": 745472,
+              "sparsity": 0.5520126845810439,
+              "threshold": 0.021255310624837875,
+              "target_sparsity": 0.5594070271587609,
+              "mode": "r_sparse"
+            }
+          }
+        },
+        "31": {
+          "sparsity": 0.5050286049784919,
+          "zero_count": 1021887,
+          "kept_count": 1001537,
+          "total_count": 2023424,
+          "modules": {
+            "model.layers.31.self_attn.q_proj": {
+              "zero_count": 106064,
+              "kept_count": 106928,
+              "total_count": 212992,
+              "sparsity": 0.4979717548076923,
+              "threshold": 0.2651672959327698,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.self_attn.k_proj": {
+              "zero_count": 106064,
+              "kept_count": 106928,
+              "total_count": 212992,
+              "sparsity": 0.4979717548076923,
+              "threshold": 0.2651672959327698,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.self_attn.v_proj": {
+              "zero_count": 106064,
+              "kept_count": 106928,
+              "total_count": 212992,
+              "sparsity": 0.4979717548076923,
+              "threshold": 0.2651672959327698,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.self_attn.o_proj": {
+              "zero_count": 96773,
+              "kept_count": 116219,
+              "total_count": 212992,
+              "sparsity": 0.4543503981370192,
+              "threshold": 0.05511365458369255,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.mlp.gate_proj": {
+              "zero_count": 107429,
+              "kept_count": 105563,
+              "total_count": 212992,
+              "sparsity": 0.5043804462139423,
+              "threshold": 0.27486780285835266,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.mlp.up_proj": {
+              "zero_count": 107429,
+              "kept_count": 105563,
+              "total_count": 212992,
+              "sparsity": 0.5043804462139423,
+              "threshold": 0.27486780285835266,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.mlp.down_proj": {
+              "zero_count": 392064,
+              "kept_count": 353408,
+              "total_count": 745472,
+              "sparsity": 0.5259271978021978,
+              "threshold": 0.058751098811626434,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            }
+          }
+        }
+      },
+      "overall": {
+        "sparsity": 0.558999333143556,
+        "zero_count": 3393278,
+        "total_count": 6070272
+      }
+    },
+    {
+      "sample_id": 3,
+      "start": 1027150,
+      "end": 1027662,
+      "layers": {
+        "0": {
+          "sparsity": 0.6361088926492915,
+          "zero_count": 1287118,
+          "kept_count": 736306,
+          "total_count": 2023424,
+          "modules": {
+            "model.layers.0.self_attn.q_proj": {
+              "zero_count": 197925,
+              "kept_count": 15067,
+              "total_count": 212992,
+              "sparsity": 0.92926025390625,
+              "threshold": 0.35811254382133484,
+              "target_sparsity": 0.9275846609729296,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.self_attn.k_proj": {
+              "zero_count": 191803,
+              "kept_count": 21189,
+              "total_count": 212992,
+              "sparsity": 0.9005173903245193,
+              "threshold": 0.18100520968437195,
+              "target_sparsity": 0.8991872232179632,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.self_attn.v_proj": {
+              "zero_count": 123264,
+              "kept_count": 89728,
+              "total_count": 212992,
+              "sparsity": 0.5787259615384616,
+              "threshold": 0.0045690773986279964,
+              "target_sparsity": 0.5780327440635273,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.self_attn.o_proj": {
+              "zero_count": 140477,
+              "kept_count": 72515,
+              "total_count": 212992,
+              "sparsity": 0.6595412034254807,
+              "threshold": 0.0016426506917923689,
+              "target_sparsity": 0.6122812718662566,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.mlp.gate_proj": {
+              "zero_count": 109504,
+              "kept_count": 103488,
+              "total_count": 212992,
+              "sparsity": 0.5141225961538461,
+              "threshold": 0.09337152540683746,
+              "target_sparsity": 0.5084520183981467,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.mlp.up_proj": {
+              "zero_count": 121749,
+              "kept_count": 91243,
+              "total_count": 212992,
+              "sparsity": 0.5716130183293269,
+              "threshold": 0.09848958253860474,
+              "target_sparsity": 0.5650545245671517,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.mlp.down_proj": {
+              "zero_count": 402396,
+              "kept_count": 343076,
+              "total_count": 745472,
+              "sparsity": 0.539786873282967,
+              "threshold": 0.0014627942582592368,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            }
+          }
+        },
+        "15": {
+          "sparsity": 0.5378803453947368,
+          "zero_count": 1088360,
+          "kept_count": 935064,
+          "total_count": 2023424,
+          "modules": {
+            "model.layers.15.self_attn.q_proj": {
+              "zero_count": 133184,
+              "kept_count": 79808,
+              "total_count": 212992,
+              "sparsity": 0.6253004807692307,
+              "threshold": 0.42061638832092285,
+              "target_sparsity": 0.6480604139553267,
+              "mode": "r_sparse"
+            },
+            "model.layers.15.self_attn.k_proj": {
+              "zero_count": 100089,
+              "kept_count": 112903,
+              "total_count": 212992,
+              "sparsity": 0.46991905799278844,
+              "threshold": 0.24544577300548553,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.15.self_attn.v_proj": {
+              "zero_count": 113168,
+              "kept_count": 99824,
+              "total_count": 212992,
+              "sparsity": 0.5313251201923077,
+              "threshold": 0.09171922504901886,
+              "target_sparsity": 0.5598037403256891,
+              "mode": "r_sparse"
+            },
+            "model.layers.15.self_attn.o_proj": {
+              "zero_count": 112665,
+              "kept_count": 100327,
+              "total_count": 212992,
+              "sparsity": 0.5289635291466346,
+              "threshold": 0.02795514464378357,
+              "target_sparsity": 0.5207777357739077,
+              "mode": "r_sparse"
+            },
+            "model.layers.15.mlp.gate_proj": {
+              "zero_count": 99926,
+              "kept_count": 113066,
+              "total_count": 212992,
+              "sparsity": 0.46915377103365385,
+              "threshold": 0.19065889716148376,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.15.mlp.up_proj": {
+              "zero_count": 99926,
+              "kept_count": 113066,
+              "total_count": 212992,
+              "sparsity": 0.46915377103365385,
+              "threshold": 0.19065889716148376,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.15.mlp.down_proj": {
+              "zero_count": 429402,
+              "kept_count": 316070,
+              "total_count": 745472,
+              "sparsity": 0.5760135860233516,
+              "threshold": 0.021255310624837875,
+              "target_sparsity": 0.5594070271587609,
+              "mode": "r_sparse"
+            }
+          }
+        },
+        "31": {
+          "sparsity": 0.5074596327808705,
+          "zero_count": 1026806,
+          "kept_count": 996618,
+          "total_count": 2023424,
+          "modules": {
+            "model.layers.31.self_attn.q_proj": {
+              "zero_count": 107395,
+              "kept_count": 105597,
+              "total_count": 212992,
+              "sparsity": 0.5042208158052884,
+              "threshold": 0.2651672959327698,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.self_attn.k_proj": {
+              "zero_count": 107395,
+              "kept_count": 105597,
+              "total_count": 212992,
+              "sparsity": 0.5042208158052884,
+              "threshold": 0.2651672959327698,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.self_attn.v_proj": {
+              "zero_count": 107395,
+              "kept_count": 105597,
+              "total_count": 212992,
+              "sparsity": 0.5042208158052884,
+              "threshold": 0.2651672959327698,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.self_attn.o_proj": {
+              "zero_count": 97052,
+              "kept_count": 115940,
+              "total_count": 212992,
+              "sparsity": 0.45566030649038464,
+              "threshold": 0.05511365458369255,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.mlp.gate_proj": {
+              "zero_count": 108043,
+              "kept_count": 104949,
+              "total_count": 212992,
+              "sparsity": 0.50726318359375,
+              "threshold": 0.27486780285835266,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.mlp.up_proj": {
+              "zero_count": 108043,
+              "kept_count": 104949,
+              "total_count": 212992,
+              "sparsity": 0.50726318359375,
+              "threshold": 0.27486780285835266,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.mlp.down_proj": {
+              "zero_count": 391483,
+              "kept_count": 353989,
+              "total_count": 745472,
+              "sparsity": 0.5251478258070055,
+              "threshold": 0.058751098811626434,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            }
+          }
+        }
+      },
+      "overall": {
+        "sparsity": 0.560482956941633,
+        "zero_count": 3402284,
+        "total_count": 6070272
+      }
+    },
+    {
+      "sample_id": 4,
+      "start": 936213,
+      "end": 936725,
+      "layers": {
+        "0": {
+          "sparsity": 0.643941655332743,
+          "zero_count": 1302967,
+          "kept_count": 720457,
+          "total_count": 2023424,
+          "modules": {
+            "model.layers.0.self_attn.q_proj": {
+              "zero_count": 197634,
+              "kept_count": 15358,
+              "total_count": 212992,
+              "sparsity": 0.9278940054086539,
+              "threshold": 0.35811254382133484,
+              "target_sparsity": 0.9275846609729296,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.self_attn.k_proj": {
+              "zero_count": 191394,
+              "kept_count": 21598,
+              "total_count": 212992,
+              "sparsity": 0.8985971304086539,
+              "threshold": 0.18100520968437195,
+              "target_sparsity": 0.8991872232179632,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.self_attn.v_proj": {
+              "zero_count": 122523,
+              "kept_count": 90469,
+              "total_count": 212992,
+              "sparsity": 0.5752469576322116,
+              "threshold": 0.0045690773986279964,
+              "target_sparsity": 0.5780327440635273,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.self_attn.o_proj": {
+              "zero_count": 141207,
+              "kept_count": 71785,
+              "total_count": 212992,
+              "sparsity": 0.6629685621995193,
+              "threshold": 0.0016426506917923689,
+              "target_sparsity": 0.6122812718662566,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.mlp.gate_proj": {
+              "zero_count": 113107,
+              "kept_count": 99885,
+              "total_count": 212992,
+              "sparsity": 0.5310387244591346,
+              "threshold": 0.09337152540683746,
+              "target_sparsity": 0.5084520183981467,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.mlp.up_proj": {
+              "zero_count": 125649,
+              "kept_count": 87343,
+              "total_count": 212992,
+              "sparsity": 0.5899235652043269,
+              "threshold": 0.09848958253860474,
+              "target_sparsity": 0.5650545245671517,
+              "mode": "r_sparse"
+            },
+            "model.layers.0.mlp.down_proj": {
+              "zero_count": 411453,
+              "kept_count": 334019,
+              "total_count": 745472,
+              "sparsity": 0.5519362229567307,
+              "threshold": 0.0014627942582592368,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            }
+          }
+        },
+        "15": {
+          "sparsity": 0.5267778774987348,
+          "zero_count": 1065895,
+          "kept_count": 957529,
+          "total_count": 2023424,
+          "modules": {
+            "model.layers.15.self_attn.q_proj": {
+              "zero_count": 128178,
+              "kept_count": 84814,
+              "total_count": 212992,
+              "sparsity": 0.6017972506009616,
+              "threshold": 0.42061638832092285,
+              "target_sparsity": 0.6480604139553267,
+              "mode": "r_sparse"
+            },
+            "model.layers.15.self_attn.k_proj": {
+              "zero_count": 95964,
+              "kept_count": 117028,
+              "total_count": 212992,
+              "sparsity": 0.45055213341346156,
+              "threshold": 0.24544577300548553,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.15.self_attn.v_proj": {
+              "zero_count": 108552,
+              "kept_count": 104440,
+              "total_count": 212992,
+              "sparsity": 0.5096529447115384,
+              "threshold": 0.09171922504901886,
+              "target_sparsity": 0.5598037403256891,
+              "mode": "r_sparse"
+            },
+            "model.layers.15.self_attn.o_proj": {
+              "zero_count": 123232,
+              "kept_count": 89760,
+              "total_count": 212992,
+              "sparsity": 0.5785757211538461,
+              "threshold": 0.02795514464378357,
+              "target_sparsity": 0.5207777357739077,
+              "mode": "r_sparse"
+            },
+            "model.layers.15.mlp.gate_proj": {
+              "zero_count": 96468,
+              "kept_count": 116524,
+              "total_count": 212992,
+              "sparsity": 0.45291841947115385,
+              "threshold": 0.19065889716148376,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.15.mlp.up_proj": {
+              "zero_count": 96468,
+              "kept_count": 116524,
+              "total_count": 212992,
+              "sparsity": 0.45291841947115385,
+              "threshold": 0.19065889716148376,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.15.mlp.down_proj": {
+              "zero_count": 417033,
+              "kept_count": 328439,
+              "total_count": 745472,
+              "sparsity": 0.5594214135473901,
+              "threshold": 0.021255310624837875,
+              "target_sparsity": 0.5594070271587609,
+              "mode": "r_sparse"
+            }
+          }
+        },
+        "31": {
+          "sparsity": 0.5269123031060222,
+          "zero_count": 1066167,
+          "kept_count": 957257,
+          "total_count": 2023424,
+          "modules": {
+            "model.layers.31.self_attn.q_proj": {
+              "zero_count": 109832,
+              "kept_count": 103160,
+              "total_count": 212992,
+              "sparsity": 0.5156625600961539,
+              "threshold": 0.2651672959327698,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.self_attn.k_proj": {
+              "zero_count": 109832,
+              "kept_count": 103160,
+              "total_count": 212992,
+              "sparsity": 0.5156625600961539,
+              "threshold": 0.2651672959327698,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.self_attn.v_proj": {
+              "zero_count": 109832,
+              "kept_count": 103160,
+              "total_count": 212992,
+              "sparsity": 0.5156625600961539,
+              "threshold": 0.2651672959327698,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.self_attn.o_proj": {
+              "zero_count": 109876,
+              "kept_count": 103116,
+              "total_count": 212992,
+              "sparsity": 0.515869140625,
+              "threshold": 0.05511365458369255,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.mlp.gate_proj": {
+              "zero_count": 113049,
+              "kept_count": 99943,
+              "total_count": 212992,
+              "sparsity": 0.5307664137620193,
+              "threshold": 0.27486780285835266,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.mlp.up_proj": {
+              "zero_count": 113049,
+              "kept_count": 99943,
+              "total_count": 212992,
+              "sparsity": 0.5307664137620193,
+              "threshold": 0.27486780285835266,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            },
+            "model.layers.31.mlp.down_proj": {
+              "zero_count": 400697,
+              "kept_count": 344775,
+              "total_count": 745472,
+              "sparsity": 0.5375077803056318,
+              "threshold": 0.058751098811626434,
+              "target_sparsity": 0.5,
+              "mode": "sparse"
+            }
+          }
+        }
+      },
+      "overall": {
+        "sparsity": 0.5658772786458334,
+        "zero_count": 3435029,
+        "total_count": 6070272
+      }
+    }
+  ],
+  "aggregate": {
+    "layers": {
+      "0": {
+        "mean_sparsity": 0.6460845576606782,
+        "std_sparsity": 0.014049397925150453,
+        "min_sparsity": 0.6279647765371964,
+        "max_sparsity": 0.6681792842231782
+      },
+      "15": {
+        "mean_sparsity": 0.5293708090840081,
+        "std_sparsity": 0.008264748012531702,
+        "min_sparsity": 0.5177412148911943,
+        "max_sparsity": 0.5396713689271255
+      },
+      "31": {
+        "mean_sparsity": 0.5103021413208502,
+        "std_sparsity": 0.0091977939749088,
+        "min_sparsity": 0.4999258682312753,
+        "max_sparsity": 0.5269123031060222
+      }
+    },
+    "overall": {
+      "mean_sparsity": 0.5619191693551788,
+      "std_sparsity": 0.007462144903761104,
+      "min_sparsity": 0.5508912944922402,
+      "max_sparsity": 0.5733449835526315
+    }
+  },
+  "config": {
+    "dataset_name": "wikitext",
+    "dataset_config": "wikitext-2-raw-v1",
+    "dataset_split": "train",
+    "nsamples": 5,
+    "seqlen": 512,
+    "layers": [
+      0,
+      15,
+      31
+    ],
+    "prefill_ratio": 0.1
+  }
+}
