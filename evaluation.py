@@ -45,12 +45,18 @@ def parse_args():
     parser.add_argument('--model_name', type=str, default='llama2')
     parser.add_argument("--cache_dir", type=str, default=None)
     parser.add_argument("--device", type=str, default='cuda:0')
+    parser.add_argument("--torch_dtype", type=str, default="bfloat16")
     parser.add_argument("--method", type=str, default='full')
     parser.add_argument('--target_sparsity', type=float, default=0.5)
     parser.add_argument('--prefill_ratio', type=float, default=0.1)
+    parser.add_argument('--disable_prefill_protection', action='store_true')
     parser.add_argument('--sparse_ratio', type=float, default=1)
     parser.add_argument("--config_file", type=str, default='config/llama-2-7b-hf_default.json')
     parser.add_argument("--sparse_config_file", type=str, default=None)
+    parser.add_argument("--arc_saved_dir", type=str, default=None)
+    parser.add_argument("--arc_dataset", type=str, default="wikitext2")
+    parser.add_argument("--arc_metric", type=str, default="max")
+    parser.add_argument("--arc_quant_type", type=str, default="NVFP4")
     return parser.parse_args()
 
 def main():

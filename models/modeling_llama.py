@@ -12,6 +12,7 @@ from typing import Optional, Tuple
 from torch import nn
 import torch.utils.checkpoint
 import torch.nn.functional as F
+from utils.linear_input_stats import record_linear_input_stats
 
 from transformers.models.llama.configuration_llama import LlamaConfig
 from transformers.models.llama.modeling_llama import (
@@ -41,12 +42,16 @@ class R_Sparse_Linear(nn.Module):
         self.reset_parameters()
 
         self.prefill_ratio = 0.5
+        self.protect_prefill = True
         self.flag_getting_threshold = False
         self.target_sparsity = 0
 
         self.rank = None
         self.threshold = None
         self.sparse_ratio = None
+        self.arc_quant_bridge = None
+        self.layer_key = None
+        self.stats_tag = None
 
     def _getting_threshold(self, input):
         nelements = input.numel()
@@ -103,32 +108,51 @@ class R_Sparse_Linear(nn.Module):
             return output
 
         num_tokens = input.size(1)
-        if self.prefill_ratio == 1:
-            if num_tokens > 1: # prefilling stage
+        if num_tokens <= 1 or not self.protect_prefill:
+            if self.mode == 'dense':
+                if self.stats_tag is not None:
+                    record_linear_input_stats(self.stats_tag, input)
                 output = F.linear(input, self.weight, self.bias)
-            else:
-                if self.mode == 'dense':
-                    output = F.linear(input, self.weight, self.bias)
-                elif self.mode == 'sparse': # sparse forward
-                    s_mask = input.abs().gt(self.threshold).to(input.dtype)
-                    output = F.linear(input * s_mask, self.weight, self.bias)
-                elif self.mode == 'low_rank': # low rank forward
-                    output = input @ (self.V[:, :self.rank] @ torch.diag(self.S[:self.rank])) 
-                    output = low_rank_output @ self.U[:, :self.rank].T
-                elif self.mode == 'r_sparse': # R-Sparse forward
-                    scale_input = input * self.scale.unsqueeze(0).unsqueeze(0)
-                    s_mask = scale_input.abs().gt(self.threshold).to(input.dtype)
+            elif self.mode == 'sparse': # sparse forward
+                s_mask = input.abs().gt(self.threshold).to(input.dtype)
+                sparse_input = input * s_mask
+                if self.stats_tag is not None:
+                    record_linear_input_stats(self.stats_tag, sparse_input)
+                if self.arc_quant_bridge is not None and self.layer_key is not None:
+                    output = self.arc_quant_bridge.linear(sparse_input, self.weight, self.bias, self.layer_key)
+                else:
+                    output = F.linear(sparse_input, self.weight, self.bias)
+            elif self.mode == 'low_rank': # low rank forward
+                if self.stats_tag is not None:
+                    record_linear_input_stats(self.stats_tag, torch.zeros_like(input))
+                low_rank_output = input @ (self.V[:, :self.rank] @ torch.diag(self.S[:self.rank]))
+                output = low_rank_output @ self.U[:, :self.rank].T
+            elif self.mode == 'r_sparse': # R-Sparse forward
+                scale_input = input * self.scale.unsqueeze(0).unsqueeze(0)
+                s_mask = scale_input.abs().gt(self.threshold).to(input.dtype)
 
-                    sparse_input = input * s_mask
+                sparse_input = input * s_mask
+                if self.stats_tag is not None:
+                    record_linear_input_stats(self.stats_tag, sparse_input)
+                if self.arc_quant_bridge is not None and self.layer_key is not None:
+                    sparse_output = self.arc_quant_bridge.linear(sparse_input, self.weight, self.bias, self.layer_key)
+                else:
                     sparse_output = F.linear(sparse_input, self.weight, self.bias)
 
-                    low_rank_input = input * (1 - s_mask)
-                    low_rank_output = low_rank_input @ (self.V[:, :self.rank] @ torch.diag(self.S[:self.rank])) 
-                    low_rank_output = low_rank_output @ self.U[:, :self.rank].T
+                low_rank_input = input * (1 - s_mask)
+                low_rank_output = low_rank_input @ (self.V[:, :self.rank] @ torch.diag(self.S[:self.rank]))
+                low_rank_output = low_rank_output @ self.U[:, :self.rank].T
 
-                    output = sparse_output + low_rank_output
-                else:
-                    raise NotImplementedError
+                output = sparse_output + low_rank_output
+            else:
+                raise NotImplementedError
+            return output
+
+        if self.prefill_ratio == 1:
+            if num_tokens > 1: # prefilling stage
+                if self.stats_tag is not None:
+                    record_linear_input_stats(self.stats_tag, input)
+                output = F.linear(input, self.weight, self.bias)
 
         else:
             assert num_tokens > 1
@@ -137,17 +161,28 @@ class R_Sparse_Linear(nn.Module):
             input_prefill = input[:, :decoding_tokens, :]
             input_decoding = input[:, decoding_tokens:, :]
 
+            if self.stats_tag is not None and input_prefill.numel() > 0:
+                record_linear_input_stats(self.stats_tag, input_prefill)
             output_prefill = F.linear(input_prefill, self.weight, self.bias)
 
             if self.mode == 'dense':
+                if self.stats_tag is not None and input_decoding.numel() > 0:
+                    record_linear_input_stats(self.stats_tag, input_decoding)
                 output_decoding = F.linear(input_decoding, self.weight, self.bias)
                 output = torch.cat([output_prefill, output_decoding], dim=1)
             elif self.mode == 'sparse': # sparse forward
                 s_mask = input_decoding.abs().gt(self.threshold).to(input.dtype)
                 sparse_input = input_decoding * s_mask
-                sparse_output = F.linear(sparse_input, self.weight, self.bias)
+                if self.stats_tag is not None:
+                    record_linear_input_stats(self.stats_tag, sparse_input)
+                if self.arc_quant_bridge is not None and self.layer_key is not None:
+                    sparse_output = self.arc_quant_bridge.linear(sparse_input, self.weight, self.bias, self.layer_key)
+                else:
+                    sparse_output = F.linear(sparse_input, self.weight, self.bias)
                 output = torch.cat([output_prefill, sparse_output], dim=1)
             elif self.mode == 'low_rank': # low rank forward
+                if self.stats_tag is not None and input_decoding.numel() > 0:
+                    record_linear_input_stats(self.stats_tag, torch.zeros_like(input_decoding))
                 low_rank_output = input_decoding @ (self.V[:, :self.rank] @ torch.diag(self.S[:self.rank])) 
                 low_rank_output = low_rank_output @ self.U[:, :self.rank].T
                 output = torch.cat([output_prefill, low_rank_output], dim=1)
@@ -156,7 +191,12 @@ class R_Sparse_Linear(nn.Module):
                 s_mask = scale_input.abs().gt(self.threshold).to(input.dtype)
 
                 sparse_input = input_decoding * s_mask
-                sparse_output = F.linear(sparse_input, self.weight, self.bias)
+                if self.stats_tag is not None:
+                    record_linear_input_stats(self.stats_tag, sparse_input)
+                if self.arc_quant_bridge is not None and self.layer_key is not None:
+                    sparse_output = self.arc_quant_bridge.linear(sparse_input, self.weight, self.bias, self.layer_key)
+                else:
+                    sparse_output = F.linear(sparse_input, self.weight, self.bias)
 
                 low_rank_input = input_decoding * (1 - s_mask)
                 low_rank_output = low_rank_input @ (self.V[:, :self.rank] @ torch.diag(self.S[:self.rank])) 
@@ -179,36 +219,50 @@ class LlamaForCausalLM_R_Sparse(LlamaForCausalLM):
             original_linear_layer = self.model.layers[layer_idx].mlp.gate_proj
             gate_proj = R_Sparse_Linear(original_linear_layer.in_features, original_linear_layer.out_features, bias=False)
             gate_proj.weight.data = original_linear_layer.weight.data
+            gate_proj.layer_key = f'layers.{layer_idx}.mlp.gate_proj.input'
+            gate_proj.stats_tag = f'layer_{layer_idx}.gate'
             self.model.layers[layer_idx].mlp.gate_proj = gate_proj
 
             original_linear_layer = self.model.layers[layer_idx].mlp.up_proj
             up_proj = R_Sparse_Linear(original_linear_layer.in_features, original_linear_layer.out_features, bias=False)
             up_proj.weight.data = original_linear_layer.weight.data
+            up_proj.layer_key = f'layers.{layer_idx}.mlp.up_proj.input'
+            up_proj.stats_tag = f'layer_{layer_idx}.up'
             self.model.layers[layer_idx].mlp.up_proj = up_proj
 
             original_linear_layer = self.model.layers[layer_idx].mlp.down_proj
             down_proj = R_Sparse_Linear(original_linear_layer.in_features, original_linear_layer.out_features, bias=False)
             down_proj.weight.data = original_linear_layer.weight.data
+            down_proj.layer_key = f'layers.{layer_idx}.mlp.down_proj.input'
+            down_proj.stats_tag = f'layer_{layer_idx}.down'
             self.model.layers[layer_idx].mlp.down_proj = down_proj
 
             original_linear_layer = self.model.layers[layer_idx].self_attn.q_proj
             q_proj = R_Sparse_Linear(original_linear_layer.in_features, original_linear_layer.out_features, bias=False)
             q_proj.weight.data = original_linear_layer.weight.data
+            q_proj.layer_key = f'layers.{layer_idx}.self_attn.q_proj.input'
+            q_proj.stats_tag = f'layer_{layer_idx}.q'
             self.model.layers[layer_idx].self_attn.q_proj = q_proj
 
             original_linear_layer = self.model.layers[layer_idx].self_attn.k_proj
             k_proj = R_Sparse_Linear(original_linear_layer.in_features, original_linear_layer.out_features, bias=False)
             k_proj.weight.data = original_linear_layer.weight.data
+            k_proj.layer_key = f'layers.{layer_idx}.self_attn.k_proj.input'
+            k_proj.stats_tag = f'layer_{layer_idx}.k'
             self.model.layers[layer_idx].self_attn.k_proj = k_proj
 
             original_linear_layer = self.model.layers[layer_idx].self_attn.v_proj
             v_proj = R_Sparse_Linear(original_linear_layer.in_features, original_linear_layer.out_features, bias=False)
             v_proj.weight.data = original_linear_layer.weight.data
+            v_proj.layer_key = f'layers.{layer_idx}.self_attn.v_proj.input'
+            v_proj.stats_tag = f'layer_{layer_idx}.v'
             self.model.layers[layer_idx].self_attn.v_proj = v_proj
 
             original_linear_layer = self.model.layers[layer_idx].self_attn.o_proj
             o_proj = R_Sparse_Linear(original_linear_layer.in_features, original_linear_layer.out_features, bias=False)
             o_proj.weight.data = original_linear_layer.weight.data
+            o_proj.layer_key = f'layers.{layer_idx}.self_attn.o_proj.input'
+            o_proj.stats_tag = f'layer_{layer_idx}.o'
             self.model.layers[layer_idx].self_attn.o_proj = o_proj
 
     def _load_low_rank_module(self, config):
@@ -383,10 +437,6 @@ class LlamaAttention(nn.Module):
             attn_weights = None
 
         return attn_output, attn_weights, past_key_value
-
-
-
-
 
 
 
